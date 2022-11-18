@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/the-wine-corner/static/css/main.8a685450.css",
-    "main.js": "/the-wine-corner/static/js/main.cf012dac.js",
+    "main.js": "/the-wine-corner/static/js/main.a7d07469.js",
     "static/media/Yomeishu Herbal Tonic Wine Japan.jpg": "/the-wine-corner/static/media/Yomeishu Herbal Tonic Wine Japan.9a2eea2436b82941bbc7.jpg",
     "static/media/Chum Churum Blueberry.png": "/the-wine-corner/static/media/Chum Churum Blueberry.9c935a3e5ce75c5318ea.png",
     "static/media/Chum Churum Peach.png": "/the-wine-corner/static/media/Chum Churum Peach.11bf020e264570f323d2.png",
@@ -70,10 +70,10 @@
     "static/media/Sterling Vintner's Cabernet Sauvignon USA.webp": "/the-wine-corner/static/media/Sterling Vintner's Cabernet Sauvignon USA.352c76ea60e2462af0f7.webp",
     "index.html": "/the-wine-corner/index.html",
     "main.8a685450.css.map": "/the-wine-corner/static/css/main.8a685450.css.map",
-    "main.cf012dac.js.map": "/the-wine-corner/static/js/main.cf012dac.js.map"
+    "main.a7d07469.js.map": "/the-wine-corner/static/js/main.a7d07469.js.map"
   },
   "entrypoints": [
     "static/css/main.8a685450.css",
-    "static/js/main.cf012dac.js"
+    "static/js/main.a7d07469.js"
   ]
 }
