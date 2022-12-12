@@ -1,19 +1,27 @@
 import React from "react";
 
-import { productList } from "../seeder/productList";
+import { productListDummy } from "../seeder/productListDummy";
 import { ProductList } from "./";
 
 const Home = () => {
   return (
     <>
-      {productList.map((data, index) => {
+      {productListDummy.map((data, index) => {
+        const productCategory = data.productCategory;
+        const productType = data.data.map((data) => data.productType);
+        const productPath = data.data.map((data) => data.productPath);
+        const allProducts = productListDummy
+          .find((data) => data.productCategory === productCategory)
+          .data.flatMap((data) => data.data);
+
         return (
           <ProductList
             key={index}
-            productType={data.productType}
-            productPath={data.productPath}
-            fourItem={data.data.length >= 4 && true}
-            viewAllButton={data.data.length >= 4 && true}
+            productCategory={productCategory}
+            productType={productType}
+            productPath={productPath}
+            eightItem={allProducts.length >= 8 && true}
+            viewAllButton={allProducts.length >= 8 && true}
           />
         );
       })}
