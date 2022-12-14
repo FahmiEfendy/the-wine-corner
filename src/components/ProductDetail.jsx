@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { Box, Button, Grid, Typography, useMediaQuery } from "@mui/material";
@@ -7,8 +7,12 @@ import PhoneIcon from "@mui/icons-material/Phone";
 
 import { productList } from "../seeder/productList";
 import { ProductList } from "./";
+import { productListDummy } from "../seeder/productListDummy";
+import { useEffect } from "react";
 
 const ProductDetail = () => {
+  const [productTypes, setProductType] = useState("");
+
   const params = useParams();
 
   const matches = useMediaQuery("(max-width:768px)");
@@ -17,9 +21,26 @@ const ProductDetail = () => {
 
   const productPath = params.productPath;
   const productName = params.productName;
+
   const productType = productList.find(
     (data) => data.productPath === productPath
   ).productType;
+
+  useEffect(() => {
+    productListDummy.map((data) =>
+      data.data.map(
+        (data) => data.productPath === productPath && setProductType(data)
+      )
+    );
+  }, [productPath]);
+
+  console.log(productTypes);
+
+  const selectedProductTypes = productListDummy.map((data) =>
+    data.data.find((data) => data.productType === productTypes)
+  );
+
+  console.log(selectedProductTypes);
 
   const selectedProductType = productList.find(
     (data) => data.productType === productType
@@ -127,13 +148,13 @@ const ProductDetail = () => {
           </Box>
         </Grid>
       </Grid>
-      <ProductList
+      {/* <ProductList
         hideProduct={selectedProduct.no}
         productType={productType}
         productPath={productPath}
-        fourItem={true}
-        recommendation={true}
-      />
+        fourItem
+        recommendation
+      /> */}
     </>
   );
 };

@@ -27,9 +27,12 @@ const ProductList = (props) => {
   //   (data) => data.no !== hideProduct
   // );
 
-  const allProducts = productListDummy
-    .find((data) => data.productCategory === productCategory)
-    .data.flatMap((data) => data.data);
+  const allProducts = productListDummy.find(
+    (data) => data.productCategory === productCategory
+  ).data;
+  // const allProducts = productListDummy
+  //   .find((data) => data.productCategory === productCategory)
+  //   .data.flatMap((data) => data.data);
 
   const formattedProducts = (data) => {
     if (eightItem) {
@@ -75,19 +78,23 @@ const ProductList = (props) => {
         )}
       </Box>
       <Grid container spacing={2}>
-        {formattedProducts(allProducts).map((data) => {
-          return (
-            <Grid key={data.no} item md={3} xs={6}>
-              <Product
-                productId={data.no}
-                productImage={data.productImage}
-                productName={data.productName}
-                productPrice={data.productPrice}
-                productType={productType}
-                productPath={productPath}
-              />
-            </Grid>
-          );
+        {formattedProducts(allProducts).flatMap((data) => {
+          const productType = data.productType;
+          const productPath = data.productPath;
+          return data.data.map((data) => {
+            return (
+              <Grid key={data.no} item md={3} xs={6}>
+                <Product
+                  productId={data.no}
+                  productImage={data.productImage}
+                  productName={data.productName}
+                  productPrice={data.productPrice}
+                  productType={productType}
+                  productPath={productPath}
+                />
+              </Grid>
+            );
+          });
         })}
       </Grid>
     </>

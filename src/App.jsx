@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import { Container } from "@mui/material";
 
-import { productList } from "./seeder/productList";
+import { productListDummy } from "./seeder/productListDummy";
 import {
   Footer,
   Home,
@@ -21,15 +21,18 @@ function App() {
       <Container maxWidth="xl" sx={{ minHeight: "37.1rem" }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          {productList.map((data, index) => {
+          {productListDummy.map((data, index) => {
+            const productType = data.data.map((data) => data.productType);
+            const productPath = data.data.map((data) => data.productPath);
+
             return (
               <Route
                 key={index}
-                path={`/${data.productPath}`}
+                path={`/${productPath}`}
                 element={
                   <ProductList
-                    productType={data.productType}
-                    productPath={data.productPath}
+                    productType={productType}
+                    productPath={productPath}
                   />
                 }
               />
